@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.generator.dao.ChildrenInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.generator.model.ChildrenInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="logo_path" jdbcType="VARCHAR" property="logoPath" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="follower_number" jdbcType="INTEGER" property="followerNumber" />
+    <result column="zy_numner" jdbcType="INTEGER" property="zyNumner" />
+    <result column="report_number" jdbcType="INTEGER" property="reportNumber" />
+    <result column="sign_number" jdbcType="INTEGER" property="signNumber" />
+    <result column="kq_number" jdbcType="INTEGER" property="kqNumber" />
+    <result column="mood_number" jdbcType="INTEGER" property="moodNumber" />
+    <result column="course_number" jdbcType="INTEGER" property="courseNumber" />
+    <result column="parents_number" jdbcType="INTEGER" property="parentsNumber" />
+    <result column="add_date" jdbcType="TIMESTAMP" property="addDate" />
+    <result column="is_open" jdbcType="INTEGER" property="isOpen" />
+    <result column="create_user_id" jdbcType="INTEGER" property="createUserId" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="qr_code_path" jdbcType="VARCHAR" property="qrCodePath" />
+    <result column="latlng_x" jdbcType="VARCHAR" property="latlngX" />
+    <result column="latlng_y" jdbcType="VARCHAR" property="latlngY" />
+    <result column="card_no" jdbcType="VARCHAR" property="cardNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uuid, user_id, real_name, logo_path, sex, birthday, signature, follower_number, 
+    zy_numner, report_number, sign_number, kq_number, mood_number, course_number, parents_number, 
+    add_date, is_open, create_user_id, address, qr_code_path, latlng_x, latlng_y, card_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from children_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from children_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ssm.generator.model.ChildrenInfo">
+    insert into children_info (id, uuid, user_id, 
+      real_name, logo_path, sex, 
+      birthday, signature, follower_number, 
+      zy_numner, report_number, sign_number, 
+      kq_number, mood_number, course_number, 
+      parents_number, add_date, is_open, 
+      create_user_id, address, qr_code_path, 
+      latlng_x, latlng_y, card_no
+      )
+    values (#{id,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{realName,jdbcType=VARCHAR}, #{logoPath,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{signature,jdbcType=VARCHAR}, #{followerNumber,jdbcType=INTEGER}, 
+      #{zyNumner,jdbcType=INTEGER}, #{reportNumber,jdbcType=INTEGER}, #{signNumber,jdbcType=INTEGER}, 
+      #{kqNumber,jdbcType=INTEGER}, #{moodNumber,jdbcType=INTEGER}, #{courseNumber,jdbcType=INTEGER}, 
+      #{parentsNumber,jdbcType=INTEGER}, #{addDate,jdbcType=TIMESTAMP}, #{isOpen,jdbcType=INTEGER}, 
+      #{createUserId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{qrCodePath,jdbcType=VARCHAR}, 
+      #{latlngX,jdbcType=VARCHAR}, #{latlngY,jdbcType=VARCHAR}, #{cardNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssm.generator.model.ChildrenInfo">
+    insert into children_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="logoPath != null">
+        logo_path,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="signature != null">
+        signature,
+      </if>
+      <if test="followerNumber != null">
+        follower_number,
+      </if>
+      <if test="zyNumner != null">
+        zy_numner,
+      </if>
+      <if test="reportNumber != null">
+        report_number,
+      </if>
+      <if test="signNumber != null">
+        sign_number,
+      </if>
+      <if test="kqNumber != null">
+        kq_number,
+      </if>
+      <if test="moodNumber != null">
+        mood_number,
+      </if>
+      <if test="courseNumber != null">
+        course_number,
+      </if>
+      <if test="parentsNumber != null">
+        parents_number,
+      </if>
+      <if test="addDate != null">
+        add_date,
+      </if>
+      <if test="isOpen != null">
+        is_open,
+      </if>
+      <if test="createUserId != null">
+        create_user_id,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="qrCodePath != null">
+        qr_code_path,
+      </if>
+      <if test="latlngX != null">
+        latlng_x,
+      </if>
+      <if test="latlngY != null">
+        latlng_y,
+      </if>
+      <if test="cardNo != null">
+        card_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="logoPath != null">
+        #{logoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signature != null">
+        #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="followerNumber != null">
+        #{followerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="zyNumner != null">
+        #{zyNumner,jdbcType=INTEGER},
+      </if>
+      <if test="reportNumber != null">
+        #{reportNumber,jdbcType=INTEGER},
+      </if>
+      <if test="signNumber != null">
+        #{signNumber,jdbcType=INTEGER},
+      </if>
+      <if test="kqNumber != null">
+        #{kqNumber,jdbcType=INTEGER},
+      </if>
+      <if test="moodNumber != null">
+        #{moodNumber,jdbcType=INTEGER},
+      </if>
+      <if test="courseNumber != null">
+        #{courseNumber,jdbcType=INTEGER},
+      </if>
+      <if test="parentsNumber != null">
+        #{parentsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="addDate != null">
+        #{addDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isOpen != null">
+        #{isOpen,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="qrCodePath != null">
+        #{qrCodePath,jdbcType=VARCHAR},
+      </if>
+      <if test="latlngX != null">
+        #{latlngX,jdbcType=VARCHAR},
+      </if>
+      <if test="latlngY != null">
+        #{latlngY,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.generator.model.ChildrenInfo">
+    update children_info
+    <set>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="logoPath != null">
+        logo_path = #{logoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signature != null">
+        signature = #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="followerNumber != null">
+        follower_number = #{followerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="zyNumner != null">
+        zy_numner = #{zyNumner,jdbcType=INTEGER},
+      </if>
+      <if test="reportNumber != null">
+        report_number = #{reportNumber,jdbcType=INTEGER},
+      </if>
+      <if test="signNumber != null">
+        sign_number = #{signNumber,jdbcType=INTEGER},
+      </if>
+      <if test="kqNumber != null">
+        kq_number = #{kqNumber,jdbcType=INTEGER},
+      </if>
+      <if test="moodNumber != null">
+        mood_number = #{moodNumber,jdbcType=INTEGER},
+      </if>
+      <if test="courseNumber != null">
+        course_number = #{courseNumber,jdbcType=INTEGER},
+      </if>
+      <if test="parentsNumber != null">
+        parents_number = #{parentsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="addDate != null">
+        add_date = #{addDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isOpen != null">
+        is_open = #{isOpen,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null">
+        create_user_id = #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="qrCodePath != null">
+        qr_code_path = #{qrCodePath,jdbcType=VARCHAR},
+      </if>
+      <if test="latlngX != null">
+        latlng_x = #{latlngX,jdbcType=VARCHAR},
+      </if>
+      <if test="latlngY != null">
+        latlng_y = #{latlngY,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        card_no = #{cardNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ssm.generator.model.ChildrenInfo">
+    update children_info
+    set uuid = #{uuid,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      real_name = #{realName,jdbcType=VARCHAR},
+      logo_path = #{logoPath,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      signature = #{signature,jdbcType=VARCHAR},
+      follower_number = #{followerNumber,jdbcType=INTEGER},
+      zy_numner = #{zyNumner,jdbcType=INTEGER},
+      report_number = #{reportNumber,jdbcType=INTEGER},
+      sign_number = #{signNumber,jdbcType=INTEGER},
+      kq_number = #{kqNumber,jdbcType=INTEGER},
+      mood_number = #{moodNumber,jdbcType=INTEGER},
+      course_number = #{courseNumber,jdbcType=INTEGER},
+      parents_number = #{parentsNumber,jdbcType=INTEGER},
+      add_date = #{addDate,jdbcType=TIMESTAMP},
+      is_open = #{isOpen,jdbcType=INTEGER},
+      create_user_id = #{createUserId,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      qr_code_path = #{qrCodePath,jdbcType=VARCHAR},
+      latlng_x = #{latlngX,jdbcType=VARCHAR},
+      latlng_y = #{latlngY,jdbcType=VARCHAR},
+      card_no = #{cardNo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
